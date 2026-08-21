@@ -1,0 +1,12 @@
+body {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+::-webkit-scrollbar-thumb {
+    background: #374151;
+    border-radius: 4px;
+}

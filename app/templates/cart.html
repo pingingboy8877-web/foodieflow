@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - FoodieFlow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="bg-gray-900 text-white font-sans antialiased pb-24">
+
+    <header class="sticky top-0 z-50 bg-gray-800/90 backdrop-blur-md border-b border-gray-700 p-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <a href="/" class="text-gray-400 hover:text-white mr-2"><i class="fa-solid fa-arrow-left text-lg"></i></a>
+            <h1 class="text-xl font-bold tracking-wide">Your Cart</h1>
+        </div>
+        <button onclick="clearCart()" class="text-xs text-red-400 font-semibold">Clear All</button>
+    </header>
+
+    <main class="p-4 max-w-md mx-auto">
+        <div id="cartItemsContainer" class="space-y-3 mb-6">
+            <!-- Dynamically Populated -->
+        </div>
+
+        <!-- Summary Box -->
+        <div class="bg-gray-800 border border-gray-700 rounded-xl p-4 space-y-3 shadow-lg">
+            <div class="flex justify-between text-sm text-gray-400">
+                <span>Subtotal</span>
+                <span id="cartSubtotal" class="text-white font-semibold">$0.00</span>
+            </div>
+            <div class="flex justify-between text-sm text-gray-400">
+                <span>Delivery Fee</span>
+                <span class="text-white font-semibold">$2.50</span>
+            </div>
+            <div class="border-t border-gray-700 pt-3 flex justify-between text-base font-bold text-white">
+                <span>Total Amount</span>
+                <span id="cartTotal" class="text-orange-400">$2.50</span>
+            </div>
+            <button onclick="processCheckout()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl text-sm transition mt-2">
+                Checkout Now
+            </button>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-gray-800 border-t border-gray-700 flex justify-around py-3 text-gray-400 z-50 max-w-md mx-auto">
+        <a href="/" class="flex flex-col items-center hover:text-white">
+            <i class="fa-solid fa-house text-lg"></i>
+            <span class="text-xs mt-1">Home</span>
+        </a>
+        <a href="/cart.html" class="flex flex-col items-center text-orange-500">
+            <i class="fa-solid fa-cart-shopping text-lg"></i>
+            <span class="text-xs mt-1">Cart</span>
+        </a>
+        <a href="/account.html" class="flex flex-col items-center hover:text-white">
+            <i class="fa-solid fa-user text-lg"></i>
+            <span class="text-xs mt-1">Account</span>
+        </a>
+        <a href="/about.html" class="flex flex-col items-center hover:text-white">
+            <i class="fa-solid fa-circle-info text-lg"></i>
+            <span class="text-xs mt-1">About</span>
+        </a>
+    </nav>
+
+    <script src="/static/js/cart.js"></script>
+</body>
+</html>

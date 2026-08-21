@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - FoodieFlow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="bg-gray-900 text-white font-sans antialiased pb-24">
+
+    <header class="sticky top-0 z-50 bg-gray-800/90 backdrop-blur-md border-b border-gray-700 p-4">
+        <h1 class="text-xl font-bold tracking-wide">About FoodieFlow</h1>
+    </header>
+
+    <main class="p-4 max-w-md mx-auto space-y-4">
+        <div class="bg-gray-800 border border-gray-700 rounded-xl p-4">
+            <h2 class="text-lg font-bold text-orange-400 mb-2">Our Culinary Story</h2>
+            <p class="text-sm text-gray-300 leading-relaxed">
+                FoodieFlow combines local fast-casual dining with smooth mobile ordering. Fresh ingredients, high-velocity kitchens, and instant execution.
+            </p>
+        </div>
+
+        <div class="bg-gray-800 border border-gray-700 rounded-xl p-4 space-y-3">
+            <h3 class="font-bold text-sm text-white">Opening Hours</h3>
+            <div class="flex justify-between text-xs text-gray-400">
+                <span>Mon - Fri</span>
+                <span class="text-white">08:00 AM - 10:00 PM</span>
+            </div>
+            <div class="flex justify-between text-xs text-gray-400">
+                <span>Sat - Sun</span>
+                <span class="text-white">10:00 AM - 11:30 PM</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-gray-800 border-t border-gray-700 flex justify-around py-3 text-gray-400 z-50 max-w-md mx-auto">
+        <a href="/" class="flex flex-col items-center hover:text-white">
+            <i class="fa-solid fa-house text-lg"></i>
+            <span class="text-xs mt-1">Home</span>
+        </a>
+        <a href="/cart.html" class="flex flex-col items-center hover:text-white">
+            <i class="fa-solid fa-cart-shopping text-lg"></i>
+            <span class="text-xs mt-1">Cart</span>
+        </a>
+        <a href="/account.html" class="flex flex-col items-center hover:text-white">
+            <i class="fa-solid fa-user text-lg"></i>
+            <span class="text-xs mt-1">Account</span>
+        </a>
+        <a href="/about.html" class="flex flex-col items-center text-orange-500">
+            <i class="fa-solid fa-circle-info text-lg"></i>
+            <span class="text-xs mt-1">About</span>
+        </a>
+    </nav>
+</body>
+</html>
