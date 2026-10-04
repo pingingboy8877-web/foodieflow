@@ -136,7 +136,7 @@ async function submitAuth(event) {
   event.preventDefault();
   const login = $("authLogin").style.display !== "none";
   const payload = {
-    username: $("authUsername").value.trim(),
+    username: login ? $("authUsername").value.trim() : $("authRegUsername").value.trim(),
     password: $("authPassword").value
   };
   if (!login) payload.email = $("authEmail").value.trim();
