@@ -3,7 +3,7 @@ import sqlite3
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-DB_PATH = Path(os.environ.get("FOODIE_DB_PATH", BASE_DIR / "foodie.db"))
+DB_PATH = Path(os.environ.get("FOODIE_DB_PATH", "/tmp/foodie.db" if os.environ.get("VERCEL") else BASE_DIR / "foodie.db"))
 
 def get_db():
     conn = sqlite3.connect(str(DB_PATH))
