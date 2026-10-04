@@ -1,81 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodieFlow Mobile App</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FoodieFlow — Good food, moving fast.</title>
+<meta name="description" content="Discover great food and order it from FoodieFlow.">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-900 text-white font-sans antialiased pb-20">
+<body>
+<header class="topbar"><div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%">
+<a class="brand" href="/"><span class="brand-mark">F</span><span>FoodieFlow<small>Food · Fast · Local</small></span></a>
+<nav class="nav"><a href="/">Discover</a><a href="#popular">Popular</a><a href="/about.html">About</a><a href="/account.html">Orders</a></nav>
+<div class="nav-actions"><button class="icon-btn" onclick="openCart()" aria-label="Basket">🛒<span data-cart-count>0</span></button><button class="primary-btn" onclick="openAuth()"><span data-auth-label>Sign in</span></button></div>
+</div></header>
 
-    <header class="sticky top-0 z-50 bg-gray-800/90 backdrop-blur-md border-b border-gray-700 p-4 flex justify-between items-center">
-        <div class="flex items-center space-x-2">
-            <i class="fa-solid fa-utensils text-orange-500 text-xl"></i>
-            <h1 class="text-xl font-bold tracking-wide">FoodieFlow</h1>
-        </div>
-        <div id="authStatus" class="text-sm">
-            <button onclick="openAuthModal()" class="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1.5 rounded-full text-xs font-semibold">Sign In</button>
-        </div>
-    </header>
+<main>
+<section class="hero"><div class="container hero-grid">
+<div><div class="eyebrow">Your next meal starts here</div><h1>Good food.<br><span>Zero drama.</span></h1><p class="hero-copy">Discover bold local flavours, comfort food and fresh favourites. Pick what you want, build your basket and let FoodieFlow handle the rest.</p><div class="hero-actions"><a class="primary-btn" href="#menu">Explore the menu →</a><button class="ghost-btn" onclick="openCart()">View basket</button></div></div>
+<div class="hero-media"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1400&q=90" alt="Fresh food bowl"><div class="hero-card"><div><strong>Freshly made. Ready to move.</strong><span>Fast ordering · clear prices · no clutter</span></div><strong>★★★★★</strong></div></div>
+</div></section>
 
-    <main class="p-4 max-w-md mx-auto">
-        <div class="mb-4">
-            <h2 class="text-2xl font-extrabold">Delicious Dishes</h2>
-            <p class="text-gray-400 text-sm">Order fresh food directly from your mobile</p>
-        </div>
+<section class="section" id="menu"><div class="container">
+<div class="section-head"><div><div class="eyebrow">Browse</div><h2 class="section-title">What are you craving?</h2><p class="section-sub">Search by dish or move through the categories.</p></div><div class="searchbar">⌕ <input id="menuSearch" placeholder="Search food..."></div></div>
+<div id="categoryChips" class="chips"></div>
+<div id="menuContainer" class="food-grid"><div class="form-card">Loading the kitchen…</div></div>
+</div></section>
 
-        <div id="menuContainer" class="grid grid-cols-1 gap-4">
-            <div class="text-center py-8 text-gray-500">Loading menu...</div>
-        </div>
-    </main>
+<section class="section" id="popular"><div class="container"><div class="feature-strip">
+<div class="feature"><div class="feature-icon">✓</div><div><strong>Simple ordering</strong><p>Everything you need without the clutter of a marketplace.</p></div></div>
+<div class="feature"><div class="feature-icon">₦</div><div><strong>Transparent pricing</strong><p>Your subtotal, delivery and total are shown before checkout.</p></div></div>
+<div class="feature"><div class="feature-icon">↗</div><div><strong>Built for mobile</strong><p>Quick interactions designed around the way people actually order.</p></div></div>
+</div></div></section>
+</main>
 
-    <nav class="fixed bottom-0 left-0 right-0 bg-gray-800 border-t border-gray-700 flex justify-around py-3 text-gray-400 z-50 max-w-md mx-auto">
-        <button class="flex flex-col items-center text-orange-500">
-            <i class="fa-solid fa-house text-lg"></i>
-            <span class="text-xs mt-1">Home</span>
-        </button>
-        <button class="flex flex-col items-center hover:text-white relative" onclick="openCart()">
-            <i class="fa-solid fa-cart-shopping text-lg"></i>
-            <span class="text-xs mt-1">Cart</span>
-            <span id="cartBadge" class="absolute -top-1 -right-2 bg-orange-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
-        </button>
-        <button class="flex flex-col items-center hover:text-white" onclick="openAuthModal()">
-            <i class="fa-solid fa-user text-lg"></i>
-            <span class="text-xs mt-1">Account</span>
-        </button>
-    </nav>
+<footer class="footer"><div class="container footer-grid"><div><div class="brand"><span class="brand-mark">F</span><span>FoodieFlow<small>Food · Fast · Local</small></span></div><p>A cleaner way to discover and order great food.</p></div><div><h4>Explore</h4><p><a href="#menu">Menu</a><br><a href="/account.html">My orders</a><br><a href="/about.html">About</a></p></div><div><h4>Support</h4><p>Need help with an order?<br>Use your account page to see your order history.</p></div></div></footer>
 
-    <div id="authModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
-        <div class="bg-gray-800 w-full max-w-sm rounded-2xl p-6 border border-gray-700 shadow-2xl relative">
-            <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-            <h3 class="text-xl font-bold mb-4" id="modalTitle">Login to Account</h3>
-            
-            <form id="authForm" class="space-y-4">
-                <div>
-                    <label class="text-xs text-gray-400">Username</label>
-                    <input type="text" id="usernameInput" required class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:outline-none focus:border-orange-500">
-                </div>
-                <div id="emailGroup" class="hidden">
-                    <label class="text-xs text-gray-400">Email</label>
-                    <input type="email" id="emailInput" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:outline-none focus:border-orange-500">
-                </div>
-                <div>
-                    <label class="text-xs text-gray-400">Password</label>
-                    <input type="password" id="passwordInput" required class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:outline-none focus:border-orange-500">
-                </div>
-                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 rounded-lg text-sm transition">Submit</button>
-            </form>
-            <p class="text-xs text-gray-400 mt-4 text-center">
-                <span id="toggleText">Need an account?</span> 
-                <a href="#" onclick="toggleAuthMode()" class="text-orange-400 underline font-semibold" id="toggleBtn">Register</a>
-            </p>
-        </div>
-    </div>
+<nav class="mobile-nav"><a class="active" href="/">⌂<span>Home</span></a><button onclick="openCart()">🛒<span>Basket</span></button><a href="/account.html">◎<span>Account</span></a></nav>
 
-    <script src="/static/js/app.js"></script>
-</body>
-</html>
+<div id="cartDrawer" class="drawer" onclick="if(event.target===this)closeCart()"><aside class="drawer-panel"><div class="drawer-head"><div><div class="eyebrow">Your basket</div><h2 style="margin:4px 0">Order summary</h2></div><button class="icon-btn" onclick="closeCart()">×</button></div><div id="cartItems"></div><div class="summary"><div class="summary-line"><span>Subtotal</span><strong id="cartSubtotal">₦0</strong></div><div class="summary-line"><span>Delivery</span><strong id="cartDelivery">₦0</strong></div><div class="summary-line total"><span>Total</span><strong id="cartTotal">₦0</strong></div><button class="primary-btn" style="width:100%;margin-top:12px" onclick="checkout()">Continue to checkout</button></div></aside></div>
+
+<div id="authModal" class="modal" onclick="if(event.target===this)closeAuth()"><div class="modal-card"><div style="display:flex;justify-content:space-between;align-items:center"><div><div class="eyebrow">Account</div><h2 id="authTitle" style="margin:5px 0">Welcome back</h2></div><button class="icon-btn" onclick="closeAuth()">×</button></div><div id="authError" class="notice"></div>
+<form onsubmit="submitAuth(event)"><div id="authLogin"><label>Username or email</label><input id="authUsername" required autocomplete="username"></div><div id="authRegister" style="display:none"><label>Username</label><input id="authRegUsername" autocomplete="username"><label>Email</label><input id="authEmail" type="email" autocomplete="email"></div><label>Password</label><input id="authPassword" type="password" minlength="8" required autocomplete="current-password"><button class="primary-btn" style="width:100%;margin-top:18px">Continue</button></form><button id="authSwitch" onclick="toggleAuth()" style="border:0;background:none;color:var(--accent);font-size:12px;font-weight:800;margin-top:15px">New here? Create an account</button></div></div>
+<script src="/static/js/app.js"></script>
+</body></html>
